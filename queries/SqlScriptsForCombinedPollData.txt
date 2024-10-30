@@ -1,0 +1,19 @@
+CREATE TABLE combined_data(Gender NVARCHAR(20), 
+Race NVARCHAR(100), 
+VeteranStatus NVARCHAR(100), 
+DisabilityStatus NVARCHAR(100), 
+EmploymentStatus NVARCHAR(100), 
+IndustrySector NVARCHAR(100), 
+OccupancyStatus NVARCHAR(100), 
+MortgageStatus NVARCHAR(100), 
+TotalHouseholdIncome NVARCHAR(100), 
+HealthCoverage NVARCHAR(100), 
+HighestEducationLevel NVARCHAR(100), 
+COUNT NVARCHAR(100), State NVARCHAR(100), 
+LeadingParty NVARCHAR(100), 
+LeadSum NVARCHAR(100), 
+LeadAvg NVARCHAR(100), 
+TargetParty NVARCHAR(100), 
+TargetVotes NVARCHAR(100));
+
+
