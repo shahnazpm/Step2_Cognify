@@ -1,0 +1,189 @@
+# Install necessary packages
+install.packages("shinyBS")
+install.packages("plotly")
+
+# Load the required packages
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(readr)
+library(scales)
+library(plotly) # For interactive plots
+library(shinyBS) # For tooltips and extra UI enhancements
+
+# Define a custom color palette
+my_colors <- c("#1f77b4", "#ff7f0e", "#2ca02c", "#d62728")
+
+# Read the dataset
+data <- read_csv("C:/Users/GINE/OneDrive - Loyalist College/Desktop/AI_DataScience/term2/steps 2 - weekly check in/oval_office.csv")
+
+# Create the Shiny app
+ui <- fluidPage(
+  titlePanel("Interactive Filter for Veteran Status and Target Party"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      checkboxGroupInput("veteranStatus", "Select Veteran Status:", 
+                         choices = unique(data$VeteranStatus), 
+                         selected = unique(data$VeteranStatus)),
+      helpText("Filter data based on Veteran status"),
+      
+      checkboxGroupInput("disabilityStatus", "Select Disability Status:", 
+                         choices = unique(data$DisabilityStatus), 
+                         selected = unique(data$DisabilityStatus)),
+      helpText("Filter data based on Disability status"),
+      
+      checkboxGroupInput("targetParty", "Select Target Party:", 
+                         choices = unique(data$TargetParty), 
+                         selected = unique(data$TargetParty)),
+      helpText("Filter data based on Target Party"),
+      
+      br(),
+      bsTooltip("veteranStatus", "Select one or multiple Veteran statuses to filter data", placement = "right"),
+      bsTooltip("disabilityStatus", "Select one or multiple Disability statuses to filter data", placement = "right"),
+      bsTooltip("targetParty", "Select one or multiple Target parties to filter data", placement = "right")
+    ),
+    
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Veteran Status vs Target Party", plotlyOutput("barPlotVeteran")),
+        tabPanel("Disability Status vs Target Party", plotlyOutput("barPlotDisability")),
+        tabPanel("Veteran Status vs Disability Status", plotlyOutput("barPlotVeteranDisability")),
+        tabPanel("Veteran & Disability Status vs Target Party", plotlyOutput("barPlotVeteranDisabilityTargetParty"))
+      ),
+      
+      br(),
+      h4("Data Summary"),
+      tableOutput("dataSummary")
+    )
+  )
+)
+
+server <- function(input, output, session) {
+  
+  # Reactive expression to filter the data
+  filteredData <- reactive({
+    req(input$veteranStatus, input$disabilityStatus, input$targetParty)
+    
+    data %>%
+      filter(VeteranStatus %in% input$veteranStatus,
+             DisabilityStatus %in% input$disabilityStatus,
+             TargetParty %in% input$targetParty)
+  })
+  
+  # Update checkbox options dynamically based on filtered data
+  observe({
+    updateCheckboxGroupInput(session, "veteranStatus", choices = unique(filteredData()$VeteranStatus))
+    updateCheckboxGroupInput(session, "disabilityStatus", choices = unique(filteredData()$DisabilityStatus))
+    updateCheckboxGroupInput(session, "targetParty", choices = unique(filteredData()$TargetParty))
+  })
+  
+  # Render interactive bar plot for Veteran Status vs Target Party
+  output$barPlotVeteran <- renderPlotly({
+    data_summary <- filteredData()
+    
+    validate(
+      need(nrow(data_summary) > 0, "No data available for the selected filters.")
+    )
+    
+    data_summary <- data_summary %>%
+      group_by(VeteranStatus, TargetParty) %>%
+      summarise(Count = n(), .groups = 'drop') %>%
+      mutate(Percentage = Count / sum(Count) * 100)
+    
+    p <- ggplot(data_summary, aes(x = VeteranStatus, y = Percentage, fill = TargetParty)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      labs(title = "Veteran Status vs Target Party", x = "Veteran Status", y = "Percentage (%)") +
+      theme_minimal() +
+      scale_fill_manual(values = my_colors) +
+      scale_y_continuous(labels = percent_format(scale = 1))
+    
+    ggplotly(p)
+  })
+  
+  # Render interactive bar plot for Disability Status vs Target Party
+  output$barPlotDisability <- renderPlotly({
+    data_summary_disability <- filteredData()
+    
+    validate(
+      need(nrow(data_summary_disability) > 0, "No data available for the selected filters.")
+    )
+    
+    data_summary_disability <- data_summary_disability %>%
+      group_by(DisabilityStatus, TargetParty) %>%
+      summarise(Count = n(), .groups = 'drop') %>%
+      mutate(Percentage = Count / sum(Count) * 100)
+    
+    p <- ggplot(data_summary_disability, aes(x = DisabilityStatus, y = Percentage, fill = TargetParty)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      labs(title = "Disability Status vs Target Party", x = "Disability Status", y = "Percentage (%)") +
+      theme_minimal() +
+      scale_fill_manual(values = my_colors) +
+      scale_y_continuous(labels = percent_format(scale = 1))
+    
+    ggplotly(p)
+  })
+  
+  # Render interactive bar plot for Veteran Status vs Disability Status
+  output$barPlotVeteranDisability <- renderPlotly({
+    data_summary_veteran_disability <- filteredData()
+    
+    validate(
+      need(nrow(data_summary_veteran_disability) > 0, "No data available for the selected filters.")
+    )
+    
+    data_summary_veteran_disability <- data_summary_veteran_disability %>%
+      group_by(VeteranStatus, DisabilityStatus) %>%
+      summarise(Count = n(), .groups = 'drop') %>%
+      mutate(Percentage = Count / sum(Count) * 100)
+    
+    p <- ggplot(data_summary_veteran_disability, aes(x = VeteranStatus, y = Percentage, fill = DisabilityStatus)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      labs(title = "Veteran Status vs Disability Status", x = "Veteran Status", y = "Percentage (%)") +
+      theme_minimal() +
+      scale_fill_manual(values = my_colors) +
+      scale_y_continuous(labels = percent_format(scale = 1))
+    
+    ggplotly(p)
+  })
+  
+  # Render interactive bar plot for Veteran & Disability Status vs Target Party
+  output$barPlotVeteranDisabilityTargetParty <- renderPlotly({
+    data_summary_combined <- filteredData()
+    
+    validate(
+      need(nrow(data_summary_combined) > 0, "No data available for the selected filters.")
+    )
+    
+    data_summary_combined <- data_summary_combined %>%
+      group_by(VeteranStatus, DisabilityStatus, TargetParty) %>%
+      summarise(Count = n(), .groups = 'drop') %>%
+      mutate(Percentage = Count / sum(Count) * 100)
+    
+    p <- ggplot(data_summary_combined, aes(x = interaction(VeteranStatus, DisabilityStatus), y = Percentage, fill = TargetParty)) +
+      geom_bar(stat = "identity", position = "dodge") +
+      labs(title = "Veteran & Disability Status vs Target Party", x = "Veteran & Disability Status", y = "Percentage (%)") +
+      theme_minimal() +
+      scale_fill_manual(values = my_colors) +
+      scale_y_continuous(labels = percent_format(scale = 1))
+    
+    ggplotly(p)
+  })
+  
+  # Render summary table of filtered data
+  output$dataSummary <- renderTable({
+    data_summary <- filteredData()
+    
+    validate(
+      need(nrow(data_summary) > 0, "No data available for the selected filters.")
+    )
+    
+    data_summary %>%
+      group_by(VeteranStatus, DisabilityStatus, TargetParty) %>%
+      summarise(Count = n(), .groups = 'drop') %>%
+      mutate(Percentage = Count / sum(Count) * 100)
+  })
+}
+
+# Run the app
+shinyApp(ui = ui, server = server)
