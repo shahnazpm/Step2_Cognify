@@ -1,0 +1,390 @@
+--Connection
+end point: database-1.c9yu6e2kc5gy.us-east-2.rds.amazonaws.com
+username: admin
+password: Loyalist123
+
+--business table create
+
+CREATE TABLE Business_Data
+(State NVARCHAR(30) ,
+Topic NVARCHAR(30) ,
+SUBJECT NVARCHAR(100) ,
+Title NVARCHAR(100) ,
+District_01_Estimate NVARCHAR(30) ,
+District_01_Flag NVARCHAR(30) ,
+District_02_Estimate NVARCHAR(30) ,
+District_02_Flag NVARCHAR(30) ,
+District_03_Estimate NVARCHAR(30) ,
+District_03_Flag NVARCHAR(30) ,
+District_04_Estimate NVARCHAR(30) ,
+District_04_Flag NVARCHAR(30) ,
+District_05_Estimate NVARCHAR(30) ,
+District_05_Flag NVARCHAR(30) ,
+District_06_Estimate NVARCHAR(30) ,
+District_06_Flag NVARCHAR(30) ,
+District_07_Estimate NVARCHAR(30) ,
+District_07_Flag NVARCHAR(30) ,
+District_08_Estimate NVARCHAR(30) ,
+District_08_Flag NVARCHAR(30) ,
+District_09_Estimate NVARCHAR(30) ,
+District_09_Flag NVARCHAR(30) ,
+District_10_Estimate NVARCHAR(30) ,
+District_10_Flag NVARCHAR(30) ,
+District_11_Estimate NVARCHAR(30) ,
+District_11_Flag NVARCHAR(30) ,
+District_12_Estimate NVARCHAR(30) ,
+District_12_Flag NVARCHAR(30) ,
+District_13_Estimate NVARCHAR(30) ,
+District_13_Flag NVARCHAR(30) ,
+District_14_Estimate NVARCHAR(30) ,
+District_14_Flag NVARCHAR(30) ,
+District_15_Estimate NVARCHAR(30) ,
+District_15_Flag NVARCHAR(30) ,
+District_16_Estimate NVARCHAR(30) ,
+District_16_Flag NVARCHAR(30) ,
+District_17_Estimate NVARCHAR(30) ,
+District_17_Flag NVARCHAR(30) ,
+District_18_Estimate NVARCHAR(30) ,
+District_18_Flag NVARCHAR(30) ,
+District_19_Estimate NVARCHAR(30) ,
+District_19_Flag NVARCHAR(30) ,
+District_20_Estimate NVARCHAR(30) ,
+District_20_Flag NVARCHAR(30) ,
+District_21_Estimate NVARCHAR(30) ,
+District_21_Flag NVARCHAR(30) ,
+District_22_Estimate NVARCHAR(30) ,
+District_22_Flag NVARCHAR(30) ,
+District_23_Estimate NVARCHAR(30) ,
+District_23_Flag NVARCHAR(30) ,
+District_24_Estimate NVARCHAR(30) ,
+District_24_Flag NVARCHAR(30) ,
+District_25_Estimate NVARCHAR(30) ,
+District_25_Flag NVARCHAR(30) ,
+District_26_Estimate NVARCHAR(30) ,
+District_26_Flag NVARCHAR(30) ,
+District_27_Estimate NVARCHAR(30) ,
+District_27_Flag NVARCHAR(30) ,
+District_28_Estimate NVARCHAR(30) ,
+District_28_Flag NVARCHAR(30) ,
+District_29_Estimate NVARCHAR(30) ,
+District_29_Flag NVARCHAR(30) ,
+District_30_Estimate NVARCHAR(30) ,
+District_30_Flag NVARCHAR(30) ,
+District_31_Estimate NVARCHAR(30) ,
+District_31_Flag NVARCHAR(30) ,
+District_32_Estimate NVARCHAR(30) ,
+District_32_Flag NVARCHAR(30) ,
+District_33_Estimate NVARCHAR(30) ,
+District_33_Flag NVARCHAR(30) ,
+District_34_Estimate NVARCHAR(30) ,
+District_34_Flag NVARCHAR(30) ,
+District_35_Estimate NVARCHAR(30) ,
+District_35_Flag NVARCHAR(30) ,
+District_36_Estimate NVARCHAR(30) ,
+District_36_Flag NVARCHAR(30) ,
+District_37_Estimate NVARCHAR(30) ,
+District_37_Flag NVARCHAR(30) ,
+District_38_Estimate NVARCHAR(30) ,
+District_38_Flag NVARCHAR(30) ,
+District_39_Estimate NVARCHAR(30) ,
+District_39_Flag NVARCHAR(30) ,
+District_40_Estimate NVARCHAR(30) ,
+District_40_Flag NVARCHAR(30) ,
+District_41_Estimate NVARCHAR(30) ,
+District_41_Flag NVARCHAR(30) ,
+District_42_Estimate NVARCHAR(30) ,
+District_42_Flag NVARCHAR(30) ,
+District_43_Estimate NVARCHAR(30) ,
+District_43_Flag NVARCHAR(30) ,
+District_44_Estimate NVARCHAR(30) ,
+District_44_Flag NVARCHAR(30) ,
+District_45_Estimate NVARCHAR(30) ,
+District_45_Flag NVARCHAR(30) ,
+District_46_Estimate NVARCHAR(30) ,
+District_46_Flag NVARCHAR(30) ,
+District_47_Estimate NVARCHAR(30) ,
+District_47_Flag NVARCHAR(30) ,
+District_48_Estimate NVARCHAR(30) ,
+District_48_Flag NVARCHAR(30) ,
+District_49_Estimate NVARCHAR(30) ,
+District_49_Flag NVARCHAR(30) ,
+District_50_Estimate NVARCHAR(30) ,
+District_50_Flag NVARCHAR(30) ,
+District_51_Estimate NVARCHAR(30) ,
+District_51_Flag NVARCHAR(30) ,
+District_52_Estimate NVARCHAR(30) ,
+District_52_Flag NVARCHAR(30) );
+
+
+--aggregate_table
+
+CREATE TABLE aggregate_data
+(State NVARCHAR(30),
+Topic NVARCHAR(100),
+SUBJECT NVARCHAR(100),
+Title NVARCHAR(100),
+District_01_Estimate NVARCHAR(30),
+District_01_MOE NVARCHAR(30),
+District_02_Estimate NVARCHAR(30),
+District_02_MOE NVARCHAR(30),
+District_03_Estimate NVARCHAR(30),
+District_03_MOE NVARCHAR(30),
+District_04_Estimate NVARCHAR(30),
+District_04_MOE NVARCHAR(30),
+District_05_Estimate NVARCHAR(30),
+District_05_MOE NVARCHAR(30),
+District_06_Estimate NVARCHAR(30),
+District_06_MOE NVARCHAR(30),
+District_07_Estimate NVARCHAR(30),
+District_07_MOE NVARCHAR(30),
+District_08_Estimate NVARCHAR(30),
+District_08_MOE NVARCHAR(30),
+District_09_Estimate NVARCHAR(30),
+District_09_MOE NVARCHAR(30),
+District_10_Estimate NVARCHAR(30),
+District_10_MOE NVARCHAR(30),
+District_11_Estimate NVARCHAR(30),
+District_11_MOE NVARCHAR(30),
+District_12_Estimate NVARCHAR(30),
+District_12_MOE NVARCHAR(30),
+District_13_Estimate NVARCHAR(30),
+District_13_MOE NVARCHAR(30),
+District_14_Estimate NVARCHAR(30),
+District_14_MOE NVARCHAR(30),
+District_15_Estimate NVARCHAR(30),
+District_15_MOE NVARCHAR(30),
+District_16_Estimate NVARCHAR(30),
+District_16_MOE NVARCHAR(30),
+District_17_Estimate NVARCHAR(30),
+District_17_MOE NVARCHAR(30),
+District_18_Estimate NVARCHAR(30),
+District_18_MOE NVARCHAR(30),
+District_19_Estimate NVARCHAR(30),
+District_19_MOE NVARCHAR(30),
+District_20_Estimate NVARCHAR(30),
+District_20_MOE NVARCHAR(30),
+District_21_Estimate NVARCHAR(30),
+District_21_MOE NVARCHAR(30),
+District_22_Estimate NVARCHAR(30),
+District_22_MOE NVARCHAR(30),
+District_23_Estimate NVARCHAR(30),
+District_23_MOE NVARCHAR(30),
+District_24_Estimate NVARCHAR(30),
+District_24_MOE NVARCHAR(30),
+District_25_Estimate NVARCHAR(30),
+District_25_MOE NVARCHAR(30),
+District_26_Estimate NVARCHAR(30),
+District_26_MOE NVARCHAR(30),
+District_27_Estimate NVARCHAR(30),
+District_27_MOE NVARCHAR(30),
+District_28_Estimate NVARCHAR(30),
+District_28_MOE NVARCHAR(30),
+District_29_Estimate NVARCHAR(30),
+District_29_MOE NVARCHAR(30),
+District_30_Estimate NVARCHAR(30),
+District_30_MOE NVARCHAR(30),
+District_31_Estimate NVARCHAR(30),
+District_31_MOE NVARCHAR(30),
+District_32_Estimate NVARCHAR(30),
+District_32_MOE NVARCHAR(30),
+District_33_Estimate NVARCHAR(30),
+District_33_MOE NVARCHAR(30),
+District_34_Estimate NVARCHAR(30),
+District_34_MOE NVARCHAR(30),
+District_35_Estimate NVARCHAR(30),
+District_35_MOE NVARCHAR(30),
+District_36_Estimate NVARCHAR(30),
+District_36_MOE NVARCHAR(30),
+District_37_Estimate NVARCHAR(30),
+District_37_MOE NVARCHAR(30),
+District_38_Estimate NVARCHAR(30),
+District_38_MOE NVARCHAR(30),
+District_39_Estimate NVARCHAR(30),
+District_39_MOE NVARCHAR(30),
+District_40_Estimate NVARCHAR(30),
+District_40_MOE NVARCHAR(30),
+District_41_Estimate NVARCHAR(30),
+District_41_MOE NVARCHAR(30),
+District_42_Estimate NVARCHAR(30),
+District_42_MOE NVARCHAR(30),
+District_43_Estimate NVARCHAR(30),
+District_43_MOE NVARCHAR(30),
+District_44_Estimate NVARCHAR(30),
+District_44_MOE NVARCHAR(30),
+District_45_Estimate NVARCHAR(30),
+District_45_MOE NVARCHAR(30),
+District_46_Estimate NVARCHAR(30),
+District_46_MOE NVARCHAR(30),
+District_47_Estimate NVARCHAR(30),
+District_47_MOE NVARCHAR(30),
+District_48_Estimate NVARCHAR(30),
+District_48_MOE NVARCHAR(30),
+District_49_Estimate NVARCHAR(30),
+District_49_MOE NVARCHAR(30),
+District_50_Estimate NVARCHAR(30),
+District_50_MOE NVARCHAR(30),
+District_51_Estimate NVARCHAR(30),
+District_51_MOE NVARCHAR(30),
+District_52_Estimate NVARCHAR(30),
+District_52_MOE NVARCHAR(30));
+
+
+
+
+--Agrregate data arranging scripts
+
+CREATE TABLE aggregate_data_arranged
+AS
+(SELECT state, topic, SUBJECT, title, '01' AS district_code, district_01_Estimate AS Estimate, district_01_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '02' AS district_code, district_02_Estimate AS Estimate, district_02_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '03' AS district_code, district_03_Estimate AS Estimate, district_03_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '04' AS district_code, district_04_Estimate AS Estimate, district_04_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '05' AS district_code, district_05_Estimate AS Estimate, district_05_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '06' AS district_code, district_06_Estimate AS Estimate, district_06_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '07' AS district_code, district_07_Estimate AS Estimate, district_07_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '08' AS district_code, district_08_Estimate AS Estimate, district_08_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '09' AS district_code, district_09_Estimate AS Estimate, district_09_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '10' AS district_code, district_10_Estimate AS Estimate, district_10_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '11' AS district_code, district_11_Estimate AS Estimate, district_11_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '12' AS district_code, district_12_Estimate AS Estimate, district_12_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '13' AS district_code, district_13_Estimate AS Estimate, district_13_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '14' AS district_code, district_14_Estimate AS Estimate, district_14_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '15' AS district_code, district_15_Estimate AS Estimate, district_15_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '16' AS district_code, district_16_Estimate AS Estimate, district_16_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '17' AS district_code, district_17_Estimate AS Estimate, district_17_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '18' AS district_code, district_18_Estimate AS Estimate, district_18_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '19' AS district_code, district_19_Estimate AS Estimate, district_19_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '20' AS district_code, district_20_Estimate AS Estimate, district_20_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '21' AS district_code, district_21_Estimate AS Estimate, district_21_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '22' AS district_code, district_22_Estimate AS Estimate, district_22_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '23' AS district_code, district_23_Estimate AS Estimate, district_23_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '24' AS district_code, district_24_Estimate AS Estimate, district_24_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '25' AS district_code, district_25_Estimate AS Estimate, district_25_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '26' AS district_code, district_26_Estimate AS Estimate, district_26_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '27' AS district_code, district_27_Estimate AS Estimate, district_27_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '28' AS district_code, district_28_Estimate AS Estimate, district_28_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '29' AS district_code, district_29_Estimate AS Estimate, district_29_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '30' AS district_code, district_30_Estimate AS Estimate, district_30_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '31' AS district_code, district_31_Estimate AS Estimate, district_31_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '32' AS district_code, district_32_Estimate AS Estimate, district_32_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '33' AS district_code, district_33_Estimate AS Estimate, district_33_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '34' AS district_code, district_34_Estimate AS Estimate, district_34_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '35' AS district_code, district_35_Estimate AS Estimate, district_35_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '36' AS district_code, district_36_Estimate AS Estimate, district_36_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '37' AS district_code, district_37_Estimate AS Estimate, district_37_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '38' AS district_code, district_38_Estimate AS Estimate, district_38_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '39' AS district_code, district_39_Estimate AS Estimate, district_39_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '40' AS district_code, district_40_Estimate AS Estimate, district_40_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '41' AS district_code, district_41_Estimate AS Estimate, district_41_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '42' AS district_code, district_42_Estimate AS Estimate, district_42_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '43' AS district_code, district_43_Estimate AS Estimate, district_43_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '44' AS district_code, district_44_Estimate AS Estimate, district_44_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '45' AS district_code, district_45_Estimate AS Estimate, district_45_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '46' AS district_code, district_46_Estimate AS Estimate, district_46_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '47' AS district_code, district_47_Estimate AS Estimate, district_47_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '48' AS district_code, district_48_Estimate AS Estimate, district_48_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '49' AS district_code, district_49_Estimate AS Estimate, district_49_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '50' AS district_code, district_50_Estimate AS Estimate, district_50_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '51' AS district_code, district_51_Estimate AS Estimate, district_51_MOE AS MOE FROM aggregate_data UNION ALL
+SELECT state, topic, SUBJECT, title, '52' AS district_code, district_52_Estimate AS Estimate, district_52_MOE AS MOE FROM aggregate_data)
+
+
+--Keeping the data in agrregate_data_arranged in terms of aggregate districts which has the respective districts
+DELETE FROM aggregate_data_arranged
+WHERE Estimate IS NULL
+OR Estimate = ''
+
+-- Creating table business_data_arranged with designed scehams
+CREATE TABLE business_data_arranged
+AS
+(SELECT state, topic, SUBJECT, title, '01' AS district_code, district_01_Estimate AS Estimate, district_01_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '02' AS district_code, district_02_Estimate AS Estimate, district_02_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '03' AS district_code, district_03_Estimate AS Estimate, district_03_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '04' AS district_code, district_04_Estimate AS Estimate, district_04_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '05' AS district_code, district_05_Estimate AS Estimate, district_05_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '06' AS district_code, district_06_Estimate AS Estimate, district_06_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '07' AS district_code, district_07_Estimate AS Estimate, district_07_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '08' AS district_code, district_08_Estimate AS Estimate, district_08_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '09' AS district_code, district_09_Estimate AS Estimate, district_09_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '10' AS district_code, district_10_Estimate AS Estimate, district_10_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '11' AS district_code, district_11_Estimate AS Estimate, district_11_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '12' AS district_code, district_12_Estimate AS Estimate, district_12_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '13' AS district_code, district_13_Estimate AS Estimate, district_13_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '14' AS district_code, district_14_Estimate AS Estimate, district_14_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '15' AS district_code, district_15_Estimate AS Estimate, district_15_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '16' AS district_code, district_16_Estimate AS Estimate, district_16_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '17' AS district_code, district_17_Estimate AS Estimate, district_17_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '18' AS district_code, district_18_Estimate AS Estimate, district_18_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '19' AS district_code, district_19_Estimate AS Estimate, district_19_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '20' AS district_code, district_20_Estimate AS Estimate, district_20_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '21' AS district_code, district_21_Estimate AS Estimate, district_21_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '22' AS district_code, district_22_Estimate AS Estimate, district_22_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '23' AS district_code, district_23_Estimate AS Estimate, district_23_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '24' AS district_code, district_24_Estimate AS Estimate, district_24_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '25' AS district_code, district_25_Estimate AS Estimate, district_25_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '26' AS district_code, district_26_Estimate AS Estimate, district_26_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '27' AS district_code, district_27_Estimate AS Estimate, district_27_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '28' AS district_code, district_28_Estimate AS Estimate, district_28_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '29' AS district_code, district_29_Estimate AS Estimate, district_29_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '30' AS district_code, district_30_Estimate AS Estimate, district_30_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '31' AS district_code, district_31_Estimate AS Estimate, district_31_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '32' AS district_code, district_32_Estimate AS Estimate, district_32_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '33' AS district_code, district_33_Estimate AS Estimate, district_33_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '34' AS district_code, district_34_Estimate AS Estimate, district_34_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '35' AS district_code, district_35_Estimate AS Estimate, district_35_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '36' AS district_code, district_36_Estimate AS Estimate, district_36_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '37' AS district_code, district_37_Estimate AS Estimate, district_37_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '38' AS district_code, district_38_Estimate AS Estimate, district_38_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '39' AS district_code, district_39_Estimate AS Estimate, district_39_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '40' AS district_code, district_40_Estimate AS Estimate, district_40_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '41' AS district_code, district_41_Estimate AS Estimate, district_41_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '42' AS district_code, district_42_Estimate AS Estimate, district_42_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '43' AS district_code, district_43_Estimate AS Estimate, district_43_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '44' AS district_code, district_44_Estimate AS Estimate, district_44_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '45' AS district_code, district_45_Estimate AS Estimate, district_45_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '46' AS district_code, district_46_Estimate AS Estimate, district_46_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '47' AS district_code, district_47_Estimate AS Estimate, district_47_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '48' AS district_code, district_48_Estimate AS Estimate, district_48_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '49' AS district_code, district_49_Estimate AS Estimate, district_49_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '50' AS district_code, district_50_Estimate AS Estimate, district_50_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '51' AS district_code, district_51_Estimate AS Estimate, district_51_FLAG AS BUSINESS_FLAG FROM business_data UNION ALL
+SELECT state, topic, SUBJECT, title, '52' AS district_code, district_52_Estimate AS Estimate, district_52_FLAG AS BUSINESS_FLAG FROM business_data)
+
+----Keeping the data in agrregate_data_arranged in terms of aggregate districts which has the respective districts
+DELETE FROM business_data_arranged
+WHERE Estimate IS NULL
+OR Estimate = ''
+
+
+
+
+-- updating the character value to integer
+UPDATE business_data_arranged
+SET Estimate = REPLACE(Estimate,',','');
+
+UPDATE aggregate_data_arranged
+SET Estimate = REPLACE(Estimate,',','');
+
+
+--making district table
+
+SELECT * FROM aggregate_data_arranged
+
+DROP TABLE District
+
+CREATE TABLE District
+( id INT AUTO_INCREMENT,
+State_name NVARCHAR(50), 
+district_code NVARCHAR(10),
+PRIMARY KEY(id))
+
+INSERT INTO DIstrict( State_Name, district_code)
+ (SELECT DISTINCT state, district_code FROM aggregate_data_arranged
+ORDER BY state,district_code ASC)
+
+
+
+
+
+
+
