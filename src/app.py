@@ -5,9 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Load the model from the models directory
-model_path = os.path.join('models', 'prediction_model_test.pkl')
-# model_path = os.path.join('models', 'prelim_rf_model.pkl')
+model_path = os.path.join('models', 'prelim_rf_model.pkl')
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
@@ -24,12 +22,15 @@ def predict():
         # Read the CSV file into a DataFrame
         df = pd.read_csv(uploaded_file)
 
-        # Ensure the DataFrame has the expected number of features
-        if df.shape[1] == 365:  # Change this number to the expected number of features
-            # Make predictions using the model
-            predictions = model.predict(df)
+        # Ensure the DataFrame has the expected number of features (371)
+        if df.shape[1] == 371:
+            # Drop the target column ('Target')
+            X = df.drop(columns=['Target'])  # Drop the 'Target' column
 
-            # States list
+            # Make predictions using the model
+            predictions = model.predict(X)
+
+            # States list 
             states = [
                 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 
                 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 
@@ -67,12 +68,11 @@ def predict():
                 'republican_states': [state for state, pred in results.items() if pred == 1],
             }
 
-            print(summary)
-            # print(results)
-            # print(json.dumps(results, indent=4))
+            # Render results and summary in the result HTML page
             return render_template('result.html', results=results, summary=summary)
 
-        return "Error: CSV must contain 365 features."
+        # Error message if the CSV file does not have the correct feature count
+        return "Error: CSV must contain 371 features."
 
     return "Error: Please upload a valid CSV file."
 
