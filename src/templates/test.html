@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024 USA Election Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/5 p-4 border-r border-gray-700 h-screen overflow-y-auto">
+            <h2 class="text-xl font-semibold mb-4">All States</h2>
+            <ul class="space-y-2">
+                <li class="hover:text-blue-500 cursor-pointer">Alabama</li>
+                <li class="hover:text-blue-500 cursor-pointer">Alaska</li>
+                <li class="hover:text-blue-500 cursor-pointer">Arizona</li>
+                <li class="hover:text-blue-500 cursor-pointer">Arkansas</li>
+                <li class="hover:text-blue-500 cursor-pointer">California</li>
+                <li class="hover:text-blue-500 cursor-pointer">Colorado</li>
+                <li class="hover:text-blue-500 cursor-pointer">Connecticut</li>
+                <li class="hover:text-blue-500 cursor-pointer">Delaware</li>
+                <li class="hover:text-blue-500 cursor-pointer">Florida</li>
+                <li class="hover:text-blue-500 cursor-pointer">Georgia</li>
+                <li class="hover:text-blue-500 cursor-pointer">Hawaii</li>
+                <li class="hover:text-blue-500 cursor-pointer">Idaho</li>
+                <li class="hover:text-blue-500 cursor-pointer">Illinois</li>
+                <li class="hover:text-blue-500 cursor-pointer">Indiana</li>
+                <li class="hover:text-blue-500 cursor-pointer">Iowa</li>
+                <li class="hover:text-blue-500 cursor-pointer">Kansas</li>
+                <li class="hover:text-blue-500 cursor-pointer">Kentucky</li>
+                <li class="hover:text-blue-500 cursor-pointer">Louisiana</li>
+                <li class="hover:text-blue-500 cursor-pointer">Maine</li>
+                <li class="hover:text-blue-500 cursor-pointer">Maryland</li>
+                <li class="hover:text-blue-500 cursor-pointer">Massachusetts</li>
+                <li class="hover:text-blue-500 cursor-pointer">Michigan</li>
+                <li class="hover:text-blue-500 cursor-pointer">Minnesota</li>
+                <li class="hover:text-blue-500 cursor-pointer">Mississippi</li>
+                <li class="hover:text-blue-500 cursor-pointer">Missouri</li>
+                <li class="hover:text-blue-500 cursor-pointer">Montana</li>
+                <li class="hover:text-blue-500 cursor-pointer">Nebraska</li>
+                <li class="hover:text-blue-500 cursor-pointer">Nevada</li>
+                <li class="hover:text-blue-500 cursor-pointer">New Hampshire</li>
+                <li class="hover:text-blue-500 cursor-pointer">New Jersey</li>
+                <li class="hover:text-blue-500 cursor-pointer">New Mexico</li>
+                <li class="hover:text-blue-500 cursor-pointer">New York</li>
+                <li class="hover:text-blue-500 cursor-pointer">North Carolina</li>
+                <li class="hover:text-blue-500 cursor-pointer">North Dakota</li>
+                <li class="hover:text-blue-500 cursor-pointer">Ohio</li>
+                <li class="hover:text-blue-500 cursor-pointer">Oklahoma</li>
+                <li class="hover:text-blue-500 cursor-pointer">Oregon</li>
+                <li class="hover:text-blue-500 cursor-pointer">Pennsylvania</li>
+                <li class="hover:text-blue-500 cursor-pointer">Rhode Island</li>
+                <li class="hover:text-blue-500 cursor-pointer">South Carolina</li>
+                <li class="hover:text-blue-500 cursor-pointer">South Dakota</li>
+                <li class="hover:text-blue-500 cursor-pointer">Tennessee</li>
+                <li class="hover:text-blue-500 cursor-pointer">Texas</li>
+                <li class="hover:text-blue-500 cursor-pointer">Utah</li>
+                <li class="hover:text-blue-500 cursor-pointer">Vermont</li>
+                <li class="hover:text-blue-500 cursor-pointer">Virginia</li>
+                <li class="hover:text-blue-500 cursor-pointer">Washington</li>
+                <li class="hover:text-blue-500 cursor-pointer">West Virginia</li>
+                <li class="hover:text-blue-500 cursor-pointer">Wisconsin</li>
+                <li class="hover:text-blue-500 cursor-pointer">Wyoming</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-3/5 p-8">
+            <h1 class="text-3xl font-bold text-center mb-8">2024 USA Election Prediction</h1>
+            <p class="text-center mb-6 text-gray-300">Real-time election overview here</p>
+            <div class="space-y-4">
+                <div class="flex items-center bg-red-600 rounded-lg overflow-hidden">
+                    <img src="../images/trump.png" alt="Republican Candidate" class="w-16 h-16 rounded-full border-4 border-white m-2">
+                    <div class="flex-1 h-16 bg-red-500"></div>
+                </div>
+                <div class="flex items-center bg-blue-600 rounded-lg overflow-hidden">
+                    <img src="../images/kamala.png" alt="Democratic Candidate" class="w-16 h-16 rounded-full border-4 border-white m-2">
+                    <div class="flex-1 h-16 bg-blue-500"></div>
+                </div>
+            </div>
+            <p class="text-xs text-center text-gray-400 mt-4">**PS: the graph should probably show votes gained as per the states</p>
+        </div>
+        
+
+        <!-- Vote Counts -->
+        <div class="w-1/5 p-4 border-l border-gray-700">
+            <div class="text-center mb-4">
+                <h2 class="text-xl font-semibold">Votes Counts</h2>
+            </div>
+            <div class="text-center space-y-4">
+                <div>
+                    <p class="text-blue-500 font-bold">Democratic</p>
+                    <p class="text-3xl">000</p>
+                </div>
+                <div>
+                    <p class="text-red-500 font-bold">Republican</p>
+                    <p class="text-3xl">000</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 font-bold">Others</p>
+                    <p class="text-3xl">000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
