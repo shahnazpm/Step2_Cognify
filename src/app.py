@@ -67,7 +67,7 @@ def home():
             }
 
             # Render results and summary in the result HTML page
-            return render_template('result.html', results=results, summary=summary)
+            return render_template('index.html', results=results, summary=summary)
 
         # Error message if the CSV file does not have the correct feature count
         return "Error: CSV must contain 371 features."

@@ -1,0 +1,16 @@
+runtime: python311  # Specify the Python runtime version
+entrypoint: gunicorn -w 2 -b :$PORT app:app  # Command to run the app
+
+handlers:
+  # Serve static files (e.g., CSS, JS, images)
+  - url: /static
+    static_dir: static
+
+  - url: /images
+    static_dir: images
+
+  - url: /.*
+    script: auto  # Route all other URLs to the Flask application
+
+env_variables:
+  FLASK_ENV: production  # Set the environment variable for Flask to production

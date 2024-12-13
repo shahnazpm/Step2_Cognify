@@ -6,12 +6,35 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>2024 USA Election Prediction</title>
 	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+	<script>
+		function toggleSidebar() {
+			const sidebar = document.getElementById('sidebar');
+			const menuButton = document.getElementById('menu-button');
+			sidebar.classList.toggle('hidden');
+			menuButton.textContent = sidebar.classList.contains('hidden') ? '☰' : '✖';
+		}
+
+			function navigateToDashboard() {
+				window.location.href = "https://473588-obianuju-anuma.shinyapps.io/dashboard_elections24_dec4/";
+			}
+	</script>
 </head>
 
 <body class="bg-gray-900 text-white">
-	<div class="flex">
+	<!-- Navbar -->
+	<nav class="bg-gray-800 p-4 flex items-center justify-between">
+		<button id="menu-button" class="text-white p-2 focus:outline-none md:hidden" onclick="toggleSidebar()">
+			☰
+		</button>
+
+		<!-- <h1 class="text-2xl font-bold">2024 USA Election Prediction</h1> -->
+	</nav>
+
+	<div class="flex flex-col md:flex-row">
 		<!-- Sidebar -->
-		<div class="w-1/5 p-4 border-r border-gray-700 h-screen overflow-y-auto">
+		<div
+			id="sidebar"
+			class="hidden md:block w-full md:w-1/5 p-4 border-r border-gray-700 h-screen bg-gray-800 overflow-y-auto">
 			<h2 class="text-xl font-semibold mb-4">Predicted States</h2>
 			<div class="space-y-6">
 				<div>
@@ -34,62 +57,53 @@
 		</div>
 
 		<!-- Main Content -->
-		<!-- <div class="w-3/5 p-8">
-			<h1 class="text-3xl font-bold text-center mb-8">2024 USA Election Prediction</h1>
-			<p class="text-center mb-6 text-gray-300">Prediction Results and Summary</p>
-			<h2 class="text-xl font-semibold mb-4">Interactive Visualization</h2>
-			<div class="text-center">
-				<a href="https://rpubs.com/UjuA/1249940" target="_blank" class="text-blue-500 underline">
-					Click here to view the interactive visualization on RPubs
+		<div class="w-full md:w-3/5 p-4 md:p-8">
+			<h1 class="text-2xl md:text-3xl font-bold text-center mb-4 md:mb-8">2024 USA Election Prediction</h1>
+			<p class="text-center text-gray-300">Interactive Dashboard
+				<button 
+				onclick="navigateToDashboard()" 
+				class="bg-blue-600 hover:bg-blue-300 text-white font-bold py-1 px-2 rounded mb-4">
+				Go to Full Dashboard
+				</button>
+				<a href="index.html">
+					testsetsetstestestetse
 				</a>
+					</p>
+
+			<!-- Embedded Interactive Dashboard -->
+			<iframe 
+				src="https://473588-obianuju-anuma.shinyapps.io/dashboard_elections24_dec4/" 
+				width="100%" 
+				height="600" 
+				class="rounded-lg border-2 border-gray-700 mb-10">
+			</iframe>
+
+					<a href="https://rpubs.com/UjuA/1249940">
+						<img
+							src="../static/images/map.png"
+							alt="Election Map"
+							class="w-full h-auto rounded-lg border-2 border-gray-700 mb-4 md:mb-6">
+					</a> </div>
+
+		<!-- Right Sidebar -->
+		<div class="w-full md:w-1/5 p-4 border-t md:border-t-0 md:border-l border-gray-700 h-auto md:h-screen bg-gray-800">
+			<div class="text-center mb-6">
+				<h2 class="text-xl font-semibold">Votes Counts</h2>
 			</div>
-		</div> -->
 
-		<div class="w-3/5 p-8">
-      <h1 class="text-3xl font-bold text-center mb-8">2024 USA Election Prediction</h1>
-      <p class="text-center mb-6 text-white-300">Interactive Dashboard</p>
-      <iframe 
-          src="../reports/map.html" 
-          class="w-full h-[600px] rounded-lg border-2 border-gray-700"
-          frameborder="0">
-      </iframe>
-  </div>
-  
-
-
-	<!-- Right Sidebar -->
-	<div class="w-1/5 p-4 border-l border-gray-700 h-screen">
-		<div class="text-center mb-6">
-			<h2 class="text-xl font-semibold">Votes Counts</h2>
-			<div class="text-center space-y-4">
-				<div>
-					<p class="text-blue-500 font-bold">Democratic</p>
-					<p class="text-3xl">{{ summary.democrat_votes }}</p>
+			<!-- Styled Summary Section -->
+			<div class="text-center bg-gray-700 p-4 rounded-lg">
+				<h2 class="text-lg font-semibold text-white mb-2">Summary</h2>
+				<div class="space-y-2">
+					<p><span class="text-gray-400">Total States:</span> <span class="text-white">{{ summary.total_states }}</span></p>
+					<p><span class="text-gray-400">Democrat Predictions:</span> <span class="text-blue-400">{{ summary.democrat_count }} ({{ summary.democrat_percentage | round(2) }}%)</span></p>
+					<p><span class="text-gray-400">Democrat Seats:</span> <span class="text-blue-400">{{ summary.democrat_seats }}</span></p>
+					<p><span class="text-gray-400">Republican Predictions:</span> <span class="text-red-400">{{ summary.republican_count }} ({{ summary.republican_percentage | round(2) }}%)</span></p>
+					<p><span class="text-gray-400">Republican Seats:</span> <span class="text-red-400">{{ summary.republican_seats }}</span></p>
+					<p><span class="text-gray-400">Winning Party:</span> <span class="text-green-400">{{ summary.winning_party }}</span></p>
 				</div>
-				<div>
-					<p class="text-red-500 font-bold">Republican</p>
-					<p class="text-3xl">{{ summary.republican_votes }}</p>
-				</div>
-				<div>
-					<p class="text-gray-500 font-bold">Others</p>
-					<p class="text-3xl">{{ summary.other_votes }}</p>
-				</div>
-			</div>
-		</div>
-
-		<!-- Styled Summary Section -->
-		<div class="text-center bg-gray-800 p-4 rounded-lg">
-			<h2 class="text-lg font-semibold text-white mb-2">Summary</h2>
-			<div class="space-y-2">
-				<p><span class="text-gray-400">Total States:</span> <span class="text-white">{{ summary.total_states }}</span></p>
-				<p><span class="text-gray-400">Democrat Predictions:</span> <span class="text-blue-400">{{ summary.democrat_count }} ({{ summary.democrat_percentage | round(2) }}%)</span></p>
-				<p><span class="text-gray-400">Democrat Seats:</span> <span class="text-blue-400">{{ summary.democrat_seats }}</span></p>
-				<p><span class="text-gray-400">Republican Predictions:</span> <span class="text-red-400">{{ summary.republican_count }} ({{ summary.republican_percentage | round(2) }}%)</span></p>
-				<p><span class="text-gray-400">Republican Seats:</span> <span class="text-red-400">{{ summary.republican_seats }}</span></p>
-				<p><span class="text-gray-400">Winning Party:</span> <span class="text-green-400">{{ summary.winning_party }}</span></p>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 

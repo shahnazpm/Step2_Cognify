@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html><head><title>2024 USA Election Prediction</title><meta charset="utf-8"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><meta name="description" content=""><meta name="keywords" content=""><link rel="stylesheet" href="../static/assets/css/main.css"></head><body class="is-preload">
+
+	<!-- Header -->
+		<header id="header"><a class="logo" href="index.html">Team Cognify</a>
+			<nav><a href="#menu">States</a></nav>
+</header>
+
+<!-- Updated Nav Menu -->
+<nav id="menu" class="p-4 bg-gray-100 rounded-lg shadow-md">
+	<!-- Democrat States Section -->
+	<div class="space-y-4">
+		<h3 class="font-semibold text-blue-400">Democrat States</h3>
+		<ul class="space-y-2">
+			{% for state in summary.democrat_states %}
+			<li class="hover:text-blue-500">{{ state }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<!-- Republican States Section -->
+	<div class="space-y-4 mt-6">
+		<h3 class="font-semibold text-red-400">Republican States</h3>
+		<ul class="space-y-2">
+			{% for state in summary.republican_states %}
+			<li class="hover:text-red-500">{{ state }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+</nav>
+
+<!-- Banner -->
+<section id="banner">
+	<div class="inner">
+		<h1 class="heading-bold-opacity">USA Election Prediction <span class="heading-span">2024</span></h1>
+		<div class="stats-container">
+			<p class="stats-row"><span class="stats-label">Total States:</span> <span class="stats-value stats-white">{{ summary.total_states }}</span></p>
+			<p class="stats-row"><span class="stats-label">Democrat Predictions:</span> 
+				<span class="stats-value stats-democrat">{{ summary.democrat_count }} ({{ summary.democrat_percentage | round(2) }}%)</span>
+			</p>
+			<p class="stats-row"><span class="stats-label">Democrat Seats:</span> 
+				<span class="stats-value stats-democrat">{{ summary.democrat_seats }}</span>
+			</p>
+			<p class="stats-row"><span class="stats-label">Republican Predictions:</span> 
+				<span class="stats-value stats-republican">{{ summary.republican_count }} ({{ summary.republican_percentage | round(2) }}%)</span>
+			</p>
+			<p class="stats-row"><span class="stats-label">Republican Seats:</span> 
+				<span class="stats-value stats-republican">{{ summary.republican_seats }}</span>
+			</p>
+			<p class="stats-row"><span class="stats-label">Winning Party:</span> 
+				<span class="stats-value stats-winning">{{ summary.winning_party }}</span>
+			</p>
+		</div>
+
+	</div>
+	<video autoplay loop muted playsinline src="../static/images/banner2.mp4"></video>
+</section>
+
+
+	<!-- Highlights --><section class="wrapper">
+
+		<!-- <div class="inner"> -->
+		<header class="special"><h2>Interactive Dashboard</h2>
+			<!-- <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p> -->
+			<iframe 
+			src="https://473588-obianuju-anuma.shinyapps.io/dashboard_elections24_dec4/" 
+			width="80%" 
+			height="600" 
+			class="rounded-lg border-2 border-gray-700 mb-10"
+			>
+		</iframe>
+		</header>
+
+	</section><!-- CTA --><section id="cta" class="wrapper"><div class="inner">
+		<h2>Shaping the Future of Democracy</h2>
+		<p>Explore the dynamics of U.S. elections with data-driven insights.
+			Our predictions, built on economic indicators, historical trends, and state-level analysis, empower you to understand the factors influencing election outcomes.
+
+			Stay informed. Stay engaged. Together, we analyze the pulse of the nation.</p>
+		</div>
+	</section><!-- Testimonials -->
+
+	<div class="inner">
+	<div class="highlights">
+		<section><div class="content">
+			<header><a href="https://www.usa.gov/voter-registration" class="icon fa-vcard-o"><span class="label">Icon</span></a>
+				<h3>Voter Registration</h3>
+			</header><p>Learn how and when to register to vote, get a voter card, or change your address or name on your voter registration.</p>
+			</div>
+		</section><section><div class="content">
+			<header><a href="https://www.usa.gov/voter-research" class="icon fa-check-circle"><span class="label">Icon</span></a>
+				<h3>Decide who to vote for</h3>
+			</header><p>Learn how to make informed choices by using voter guides and sample ballots to research candidates.</p>
+			</div>
+		</section><section><div class="content">
+			<header><a href="https://www.usa.gov/how-to-vote" class="icon fa-calendar"><span class="label">Icon</span></a>
+				<h3>How, when, and where to vote</h3>
+			</header><p>
+				See how to vote absentee, early, or on Election Day. Learn about voter IDs and who you can vote for.</p>
+			</div>
+		</section><section><div class="content">
+			<header><a href="https://www.usa.gov/state-election-office" class="icon fa-building"><span class="label">Icon</span></a>
+				<h3>State and local election offices</h3>
+			</header><p>Find and contact your state or local election office for help with registering and voting.</p>
+			</div>
+		</section><section><div class="content">
+			<header><a href="https://www.usa.gov/voting-laws" class="icon fa-gavel"><span class="label">Icon</span></a>
+				<h3>Voting and election laws</h3>
+			</header><p>Find answers to common questions about voting rules and rights in the United States.</p>
+			</div>
+		</section><section><div class="content">
+			<header><a href="https://www.usa.gov/election-results" class="icon fa-search"><span class="label">Icon</span></a>
+				<h3>Find results from past elections</h3>
+			</header><p>Get election results from past House, Senate, and presidential elections. Learn about past Electoral College results. Find out where to get state and local election results.</p>
+			</div>
+		</section></div>
+	</div></div>
+	</div>
+
+	<!-- Scripts -->
+		<script src="../static/assets/js/jquery.min.js"></script><script src="../static/assets/js/browser.min.js"></script><script src="../static/assets/js/breakpoints.min.js"></script><script src="../static/assets/js/util.js"></script><script src="../static/assets/js/main.js"></script></body></html>
